@@ -21,6 +21,7 @@ class AdvertsController < ApplicationController
 
   def show
     # @advert = Advert.find(params[:id])
+    @message = Message.new
   end
 
   def edit

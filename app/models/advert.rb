@@ -1,5 +1,6 @@
 class Advert < ApplicationRecord
   belongs_to :user
+  has_many :messages, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 5 }
   validates :type_ad, presence: true, inclusion:  { in: ["Lost", "Find", "See"], 

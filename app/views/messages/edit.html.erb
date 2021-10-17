@@ -1,0 +1,24 @@
+<h1>Advert from <%= @message.advert.user.user_name %></h1>
+
+<h2><%= @message.advert.title %></h2>
+<p>Type: <%= @message.advert.type_ad %></p>
+<p>Address: <%= @message.advert.address %></p>
+<p>Content: <%= @message.advert.content %></p>
+
+
+<% @message.advert.messages.each do |message| %>
+  <p>--------</p>
+  <% if message.id == @message.id %>
+    <h2>Edit your message</h2>
+    <%= simple_form_for(@message )do |f| %>
+      <%= f.input :content %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+    <p><%= message.content %></p>
+    <p>by <%= message.user.user_name %></p>
+    <p>Message id: <%= message.id %></p>
+  <% end %>
+  <p>--------</p>
+<% end %>
+

@@ -6,3 +6,22 @@
 <p>Content: <%= @advert.content %></p>
 <%= link_to "Edit your advert", edit_advert_path(@advert) %>
 <%= link_to "Delete this advert", advert_path(@advert), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% @advert.messages.each do |message| %>
+  <p>--------</p>
+  <p><%= message.content %></p>
+  <p>by <%= message.user.user_name %></p>
+  <p>Message id: <%= message.id %></p>
+  <% if message.user == current_user %>
+    <%= link_to "Edit", edit_message_path(message)  %>
+    <%= link_to "Delete", message_path(message), method: :delete, data: { confirm: "Are you sure?" }  %>
+  <% end %>
+  <p>--------</p>
+<% end %>
+
+<h2>Write a message</h2>
+
+<%= simple_form_for [@advert, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
