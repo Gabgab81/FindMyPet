@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :user_name, uniqueness: true, presence: true, length: { minimum: 3 }
+  has_many :adverts, dependent: :destroy
 end
