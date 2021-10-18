@@ -2,6 +2,7 @@
 
 <h2><%= @advert.title %></h2>
 <p>Type: <%= @advert.type_ad %></p>
+<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
 <p>Address: <%= @advert.address %></p>
 <p>Content: <%= @advert.content %></p>
 <%= link_to "Edit your advert", edit_advert_path(@advert) %>
