@@ -2,6 +2,7 @@
 
 <h2><%= @message.advert.title %></h2>
 <p>Type: <%= @message.advert.type_ad %></p>
+<%= cl_image_tag @advert.photo.key, height: 150, width: 200, crop: :fill %>
 <p>Address: <%= @message.advert.address %></p>
 <p>Content: <%= @message.advert.content %></p>
 
