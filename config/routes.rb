@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :messages, only: [ :edit, :update, :destroy ]
+
+  resources :users, only: [:show] do
+    member do
+      get :user_adverts
+    end
+  end
 end
