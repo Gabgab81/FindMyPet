@@ -3,8 +3,8 @@
 <h2><%= @advert.title %></h2>
 <p>Type: <%= @advert.type_ad %></p> 
 
-<% @advert.photos.each do |photo| %> %>
-  <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %> %>
+<% @advert.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
 <% end %>
 
 
