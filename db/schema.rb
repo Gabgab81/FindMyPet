@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_215220) do
+ActiveRecord::Schema.define(version: 2022_08_04_215844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2022_08_04_215220) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_adverts_on_user_id"
+  end
+
+  create_table "conversation_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_conversation_users_on_conversation_id"
+    t.index ["user_id"], name: "index_conversation_users_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -87,6 +96,8 @@ ActiveRecord::Schema.define(version: 2022_08_04_215220) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "adverts", "users"
+  add_foreign_key "conversation_users", "conversations"
+  add_foreign_key "conversation_users", "users"
   add_foreign_key "messages", "adverts"
   add_foreign_key "messages", "users"
   add_foreign_key "user_texts", "conversations"
