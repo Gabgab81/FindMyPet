@@ -4,9 +4,11 @@
 <% @advert.each do |advert| %>
   <h2><%= advert.title %></h2>
   <p>Type: <%= advert.type_ad %></p>
-  <% advert.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
-  <% end %>
+
+  <%# <% advert.photos.each do |photo| %> %>
+    <%# <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %> %>
+  <%# <% end %> %>
+  
   <p>Address: <%= advert.address %></p>
   <p>Content: <%= advert.content %></p>
   <%= link_to "Show your advert", advert_path(advert) %>
@@ -15,3 +17,7 @@
     <%= link_to "Delete this advert", advert_path(advert), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 <% end %>
+<p></p>
+<%= link_to "Back to the home", root_path %>
+<p></p>
+<%= link_to "Create your advert", new_advert_path %>
