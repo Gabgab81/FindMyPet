@@ -1,4 +1,4 @@
-<h1>Advert from <%= @advert.user.user_name %></h1>
+<h1>Advert from <%=  @advert.user.user_name %></h1>
 
 <h2><%= @advert.title %></h2>
 <p>Type: <%= @advert.type_ad %></p> 
@@ -31,6 +31,16 @@
 
 <%= simple_form_for [@advert, @message] do |f| %>
   <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
+<p></p>
+
+<h2>Write a message to <%=  @advert.user.user_name %> ?</h2>
+
+<%= simple_form_for(@user_text) do |f| %>
+  <%= f.input :content %>
+  <%= f.hidden_field :advert_user_id, value: @advert.user.id %>
+  <%= f.hidden_field :conversation_id, value: nil, readonly: true %>
   <%= f.submit %>
 <% end %>
 

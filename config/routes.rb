@@ -13,4 +13,8 @@ Rails.application.routes.draw do
       get :user_adverts
     end
   end
+
+  resources :conversations, only: [ :new, :create, :index, :show, :destroy]
+  resources :conversation_user, only: [:new, :create, :destroy]
+  resources :user_texts, only: [:create]
 end

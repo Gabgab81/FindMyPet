@@ -22,6 +22,10 @@ class AdvertsController < ApplicationController
   def show
     # @advert = Advert.find(params[:id])
     @message = Message.new
+    @user_text = UserText.new
+    # @conversation = Conversation.new
+    # @conversation_current_user = ConversationUser.new
+    # @conversation_advert_user = ConversationUser.new
   end
 
   def edit

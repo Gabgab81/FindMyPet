@@ -1,0 +1,7 @@
+<% @conversation_users.each do |conversations_user| %>
+    <p>Conversation : <%= conversations_user.conversation_id %> </p>
+    <%= link_to "Aller a cette conversation", conversation_path(conversations_user.conversation_id) %>
+    <%= link_to "Delete", conversation_path(conversations_user.conversation_id), method: :delete, data: { confirm: "Are you sure?" }  %>
+<% end %>
+<p></p>
+<%= link_to "home", root_path %>
