@@ -1,0 +1,11 @@
+<p>Conversation : <%= @conversation.id %> </p>
+<% @user_texts.each do |user_text| %>
+    <p> <%= user_text.user.user_name %> </p>
+    <p> <%= user_text.content %> </p>
+<% end %>
+
+<%= simple_form_for(@user_text) do |f| %>
+  <%= f.input :content %>
+  <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
+  <%= f.submit %>
+<% end %>
